@@ -1,0 +1,114 @@
+{% extends 'farmer/base.html' %}
+{% load static %}
+{% block content %}
+{% if message %}
+<script>
+    alert("{{ message }}")
+</script>
+{% endif %}
+
+
+{% comment %} <div class="container-fluid bg-light bg-icon py-6 mb-5">
+    <div class="container">
+        <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            <br>
+            <h1 class="display-5 mb-3">Pay Now</h1>
+            <p>***************************</p>
+        </div>
+    <br> {% endcomment %}
+
+    <div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <h1 class="display-3 mb-3 animated slideInDown">Payment Page</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a class="text-body" href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-body" href="#">Bookings</a></li>
+                    <li class="breadcrumb-item text-dark active" aria-current="page">Pay Online</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <br>
+    <br>
+    
+    
+<div class="container">
+    <h3 style="color:red">Payment through any cards are acceptable</h3>
+    <br>
+    <div class="row">
+        <div class="col-xs-8 col-md-6 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <h3 class="text-center"></h3>
+                        <img class="img-responsive cc-img" src="http://prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
+                    </div>
+                </div>
+                <br><br>
+                <div class="panel-body">
+                    <form method="post" action="chpayment">
+                        	{% csrf_token %}
+                        <h4>Payable Amount:{{asz}}</h4>
+                        <br>
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <div class="form-group">
+                                    <label>CARD NUMBER</label>
+                                    <div class="input-group">
+                                        <input type="tel" class="form-control" placeholder="xxxx xxxx xxxx xxxx" required pattern="[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}" />
+                                        <span class="input-group-addon"><span class="fa fa-credit-card"></span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><br><br>
+                        <div class="row">
+                            <div class="col-xs-7 col-md-7">
+                                <div class="form-group">
+                                    <label><span class="visible-xs-inline">EXPIRATION </span> DATE</label>
+                                    <input type="tel" class="form-control" placeholder="MM / YY" required />
+                                </div>
+                            </div>
+                            <div class="col-xs-5 col-md-5 pull-right">
+                                <div class="form-group">
+                                    <label>CV CODE</label>
+                                    <input type="tel" class="form-control" placeholder="xxx" pattern="[0-9]{3}" required />
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label>CARD OWNER</label>
+                                    <input type="text" class="form-control" placeholder="Card Owner Names" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required />
+                                </div>
+                            </div>
+                        </div>
+                </div><br><br>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button class="btn btn-secondary btn-lg btn-block" type="submit">Process payment</button></a>
+                        </div>
+                    </div>
+                </div>
+                  </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .cc-img {
+        margin: 0 auto;
+    }
+</style>
+<!-- Credit Card Payment Form - END -->
+
+</div>
+</div>
+
+{% comment %} </body>
+</html> {% endcomment %}
+
+ {% endblock %}

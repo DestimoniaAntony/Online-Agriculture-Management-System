@@ -1,0 +1,65 @@
+{% extends 'farmer/base.html' %}
+{% load static %}
+{% block content %} 
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+<div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <h1 class="display-3 mb-3 animated slideInDown">Crops List</h1>
+        <nav aria-label="breadcrumb animated slideInDown">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a class="text-body" href="#">Home</a></li>
+                <li class="breadcrumb-item"><a class="text-body" href="#">Crops List</a></li>
+                {% comment %} <li class="breadcrumb-item text-dark active" aria-current="page">Farmer</li> {% endcomment %}
+            </ol>
+        </nav>
+    </div>
+</div>
+<br>
+<br>
+<div class="col-xl-12">
+    <div id="page-inner" >
+        <h1>Crops List Table</h1>
+        <br>
+        <br>
+                <table class="table table-bordered table-striped table-hover">
+            
+                    <th class="info">Crop Name</th>
+                    <th class="info">Image</th>
+                    <th class="info">Description</th>
+                    <th class="info">Amount</th>
+                    <th class="info">Total Quantity</th>
+                    <th class="info">Required Quantity</th>
+                    {% comment %} <th class="text-warning">Action</th> {% endcomment %}
+                    
+
+            {% for i in view_pp  %}
+            
+            <tr>
+                
+                <td>{{ i.crop}}</td>
+                <td><img style="max-width: 200px;max-height:140px;" src="/media/{{ i.image}}"></td>
+                <td>{{ i.description}}</td>
+                <td>{{ i.amount}} /- per packet</td>
+                <td>{{ i.total_quantity}} packets</td>
+                
+                <form action="addtocart" method="post">
+                    {% csrf_token %}
+            
+                <td><textarea name="qty" placeholder="reply" > </textarea>
+                    <input type="hidden" name="id" value="{{ i.id }}"><button type="submit">Add to cart</button></td></form>
+            </tr>
+            
+                {% endfor %}
+                
+            </table>
+            
+        </div>
+    </div>
+</div>
+</div>    
+    {% endblock  %}
+    

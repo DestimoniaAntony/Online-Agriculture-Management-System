@@ -1,0 +1,49 @@
+{% extends 'farmer/base.html' %}
+{% load static %}
+{% block content %} 
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+<div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <h1 class="display-3 mb-3 animated slideInDown">Subsidy List</h1>
+        <nav aria-label="breadcrumb animated slideInDown">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a class="text-body" href="#">Home</a></li>
+                <li class="breadcrumb-item"><a class="text-body" href="#">Subsidy Info</a></li>
+                {% comment %} <li class="breadcrumb-item text-dark active" aria-current="page">Farmer</li> {% endcomment %}
+            </ol>
+        </nav>
+    </div>
+</div>
+<br>
+<br>
+<div class="col-xl-12">
+    <div id="page-inner" >
+        <h1>Subsidy List Table</h1>
+        <br>
+        <br>                  
+                <table class="table table-bordered table-striped table-hover">
+            
+                    <th class="info">ID</th>
+                    <th class="info">Subsidy</th>
+                                       
+            {% for i in view_subsidy  %}
+            
+            <tr>
+                
+                <td>{{ i.id}}</td>
+                <td>{{ i.description}}</td>
+                
+            </tr>
+            
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+</div>    
+    {% endblock  %}
+    

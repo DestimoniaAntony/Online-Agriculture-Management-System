@@ -1,0 +1,99 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block content %}
+{% if message %}
+<script>
+    alert("{{message}}")
+</script>
+{% endif %}
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <h1 class="display-3 mb-3 animated slideInDown">Add Fertilizer</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a class="text-body" href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-body" href="#">Add Fertilizer</a></li>
+                    {% comment %} <li class="breadcrumb-item text-dark active" aria-current="page">Contact Us</li> {% endcomment %}
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Contact Start -->
+    <div class="container-xxl py-6">
+        <div class="container">
+            <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h1 class="display-5 mb-3">Add Fertilizer</h1>
+                {% comment %} <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p> {% endcomment %}
+            </div>
+            <div class="row g-5 justify-content-center">
+                <div class="col-lg-5 col-md-12 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="bg-primary text-white d-flex flex-column justify-content-center h-100 p-5">
+                        <h5 class="text-white">Call Us</h5>
+                        <p class="mb-5"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                        <h5 class="text-white">Email Us</h5>
+                        <p class="mb-5"><i class="fa fa-envelope me-3"></i>info@agriculture.com</p>
+                        <h5 class="text-white">Office Address</h5>
+                        <p class="mb-5"><i class="fa fa-map-marker-alt me-3"></i>123 Street, Thodupuzha, Idukki</p>
+                        <h5 class="text-white">Follow Us</h5>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-square btn-outline-light rounded-circle me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
+                    {% comment %} <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> {% endcomment %}
+                    <form id="register-form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="input-form">
+                                    <label for="name">Fertilizer name</label>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Fertilizer Name">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-form">
+                                    <label for="file">image</label>
+                                    <input type="file" class="form-control" id="image" name="image">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="input-form">
+                                    <label for="description">description</label>
+                                    <input type="text" class="form-control" id="description" name="description" placeholder="Description">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="input-form">
+                                    <label for="quantity">quantity</label>
+                                    <input type="quantity" class="form-control" id="quantity" name="quantity" placeholder="quantity">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="input-form">
+                                    <label for="amount">amount</label>
+                                    <input type="amount" class="form-control" id="amount" name="amount" placeholder="amount">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <input type="submit" class="btn btn-primary rounded-pill py-3 px-5" value="Add Fertilizer">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+{% endblock %}

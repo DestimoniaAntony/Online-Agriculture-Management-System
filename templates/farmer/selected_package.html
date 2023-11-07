@@ -1,0 +1,71 @@
+{% extends 'farmer/base.html' %}
+{% load static %}
+{% block content %} 
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+<div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <h1 class="display-3 mb-3 animated slideInDown">Cart View</h1>
+        <nav aria-label="breadcrumb animated slideInDown">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a class="text-body" href="#">Home</a></li>
+                <li class="breadcrumb-item"><a class="text-body" href="#">Bookings</a></li>
+                {% comment %} <li class="breadcrumb-item text-dark active" aria-current="page">Farmer</li> {% endcomment %}
+            </ol>
+        </nav>
+    </div>
+</div>
+<br>
+<br>
+<div class="col-xl-12">
+    <div id="page-inner" >
+        <h1>Cart List</h1>
+        <br>
+        <br>
+                <table class="table table-bordered table-striped table-hover">
+            
+                    <th class="info">Farmer Name</th>
+                    <th class="info">Crop</th>
+                    <th class="info">Fertilizer</th>
+                    <th class="info">Amount</th>
+                    <th class="info">Quantity</th>
+                    <th class="info">Action</th>
+                                       
+            {% for i in view_cart  %}
+            
+            <tr>
+                
+                <td>{{ i.user.user.first_name}} - Selected Item</td>
+                <td>{{ i.crop.crop}}</td>
+                <td>{{ i.fertilizer.fertilizer}}</td>
+                <td>{{ i.amount}}</td>
+                <td>{{ i.quantity}}</td>
+                <td><a href="remove?id={{i.id}}" class="cart-btn"><i class="fa fa-shopping-cart"></i></a> Remove</td>
+                
+            </tr>
+            
+                {% endfor %}
+            </table>           
+        <br>
+        <br>
+        <div>
+            <table class="table table-bordered table-striped table-hover">
+                <th class="success" style="color: white; background-color: #81256c; width:560px">Total Amound :{{ asz }} Rs</th>
+                    <td>
+                   <button style="color: white;"><a href="payment" class=" btn btn-primary">Pay Online</a>
+                   </button>
+                    </td>
+
+
+
+            </table>
+          </div>
+        </div>
+    </div>
+</div>
+</div>    
+    {% endblock  %}
+    
